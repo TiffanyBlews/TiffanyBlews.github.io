@@ -196,8 +196,8 @@ article.post-view__article .article__content .mjx-chtml {
   color: #444;
 }
 .head__inner h1 {
-  font-size: 6.4rem;
-  line-height: 8.2rem;
+  font-size: 6.2rem;
+  line-height: 8rem;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -265,9 +265,9 @@ article.post-view__article .article__content .mjx-chtml {
   box-shadow: inset 0 -0.8em 0 #ebc65a;
 }
 .posts-item__title {
-  font-size: 5.2rem;
-  line-height: 6.6rem;
-  margin-bottom: 6rem;
+  font-size: 4.6rem;
+  line-height: 6.2rem;
+  margin-bottom: 3rem;
 }
 .posts-item__title a {
   text-decoration: none;
@@ -336,7 +336,7 @@ article.post-view__article .article__content .mjx-chtml {
   .posts-item__title {
     font-size: 3.4rem;
     line-height: 4.4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .posts-item__title--image {
     margin-bottom: 0;
