@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><meta name="description" content="【八股笔记】LLM从入门到入土 - TiffanyBlews's Blog"><meta name="theme-color" content="#ebc65a"><title>【八股笔记】LLM从入门到入土 - TiffanyBlews's Blog</title><style>@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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BL3+M1K+NfPvjlJEHZTOrkYvtdprqx0Hka+W/IhsQoUJE0jsPVOhV2itgp3Wame8dsB73DeCOfp+FMSxp2At3aozP1zVQ/tmEpXdveum7kat3CaLXRcmTZHmOveMiqxSteCZOrGKmscOa9WycTUXtRFabrtts1Nb3e5qHtqWPMWtuEkMSdydcarhKoTcVXtBgujKwULbPFJvqywIzBjboUacECG6ajlIews5dBUMkJ/LYHa12gpRLEsBDAAA6raxOaTnbx4GG5J6hdn4twxT1DRvEQZvD6banOa3BbstVh48efHmw5cffwECBQkWIvK/LTbhIkSKEi1GrDjxEiRKkixFqjTpMmTKki1Hrjz5ChQqUqxEqTLlKlSqUq2e+hpoqJHGmmiqmeZhWGKoYfaZ7qXhxhtjnlWWxsBotw0xxWdfjDPDSEfc98l8q33z1XeLrXPKCeu10NJErZzR2kmnXXDWOee90sYVF12yQVsfTXLdVde088Y7o3TQXkedddLFQnb/qVGrq24cuuvhtZ5666WPfvraaZEB+htokLfe2+1GBDbalARuuueWzbbYboejttrmmBHW2O+AvUmRDMb6EEUsHHQoDskRjxRIiVRILev2qn1oaGpomZOB2z/jmn/eUk6tvaZda/5znbhPCguQ7wsEvd1strBI3OYR8ye01+ZO0jbH36oqKm37w90hl2v/wO5o3vIjtpoZx20H) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><script src="https://cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js" defer></script><script src="/js/paper.js" defer></script><script src="https://www.googletagmanager.com/gtag/js?id=xx-xxxxxxx-xx" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'xx-xxxxxxx-xx');</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '.toc__content',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.article__content',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+    orderedList: false,
+    collapseDepth: 2,
+  });
+})</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+  }
+});
+MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><link rel="preload" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap"><meta name="generator" content="Hexo 5.4.2"></head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">TiffanyBlews's Blog</a></h1><p>我们所经历的每个平凡的日常，也许就是连续发生的奇迹。</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text">【八股笔记】LLM从入门到入土</p><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">【八股笔记】LLM从入门到入土</a></h2><span class="post__date">2025-08-17</span><a href="../tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><span class="post__tags">#大模型</span></a><a href="../tags/%E7%AC%94%E8%AE%B0/"><span class="post__tags">#笔记</span></a><a href="../tags/%E5%85%AB%E8%82%A1/"><span class="post__tags">#八股</span></a></div></div><div class="article__content"><p>每段信息尽量给出来源，没有详细总结的可以点进去看。图片尽量使用外链保留原链接，无法加载请挂梯子。</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#llm基础知识">LLM基础知识</a><ul>
+<li><a href="#占用显存">占用显存</a></li>
+<li><a href="#熵与kl散度">熵与KL散度</a></li>
+<li><a href="#transformer">Transformer</a><ul>
+<li><a href="#具体实现">具体实现</a></li>
+<li><a href="#常见问题">常见问题</a></li>
+<li><a href="#初始化方法">初始化方法</a></li>
+</ul>
+</li>
+<li><a href="#位置编码与位置外推">位置编码与位置外推</a><ul>
+<li><a href="#正弦函数位置编码">正弦函数位置编码</a></li>
+<li><a href="#alibi">ALiBi</a></li>
+<li><a href="#rope">RoPE</a></li>
+<li><a href="#其他长上下文方法">其他长上下文方法</a></li>
+</ul>
+</li>
+<li><a href="#moe">MoE</a></li>
+<li><a href="#各种优化">各种优化</a></li>
+<li><a href="#评估">评估</a><ul>
+<li><a href="#perplexity-ppl-困惑度预训练阶段">Perplexity PPL 困惑度（预训练阶段）</a></li>
+<li><a href="#bleu">BLEU</a></li>
+</ul>
+</li>
+<li><a href="#decoding-策略">decoding 策略</a></li>
+<li><a href="#lora">LoRA</a></li>
+<li><a href="#增强模型推理能力的方法">增强模型推理能力的方法</a></li>
+<li><a href="#agent">Agent</a></li>
+</ul>
+</li>
+<li><a href="#llm-rl-笔记">LLM RL 笔记</a></li>
+</ul>
+<h1 id="LLM基础知识"><a href="#LLM基础知识" class="headerlink" title="LLM基础知识"></a>LLM基础知识</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/636270877">【LLM】从零开始训练大模型 - 知乎</a></p>
+<h2 id="占用显存"><a href="#占用显存" class="headerlink" title="占用显存"></a>占用显存</h2><ul>
+<li>推理：<ul>
+<li>一个 float32 型数字占用 4 Byte，所以 1B 参数模型全精度部署占用 4e9 Bytes = 4 GB. 同理，半精度 fp16/bf16 每B参数占用2GB，int8 每B占用1GB，int4 0.5GB</li>
+<li>前向计算开销：通常在模型权重的20%左右，因此总的显存占用在1.2倍的模型显存左右</li>
+</ul>
+</li>
+<li>训练：<ul>
+<li>fp32所占的显存过大，fp16的精度往往达不到期望的程度，因此普遍使用混合精度训练：采用fp32、fp16和混合精度训练时，一般保存权重的时候是 fp16/bf16，fp32只用在累加算子上，防止误差的累积。</li>
+<li>需要加载的有模型权重参数、梯度值、优化器状态（如Adam需要维护主权重、一阶动量和二阶动量，并且采用fp32形式保存参数，所以=3*4*参数量 Bytes）、激活状态（）</li>
+</ul>
+</li>
+<li>强化学习训练：<ul>
+<li>根据算法不同还需要加载、更新 Reward Model、Reference Model等</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/673125345">大模型训练推理显存计算简介 - 知乎</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/624740065">https://zhuanlan.zhihu.com/p/624740065</a></p>
+<h2 id="熵与KL散度"><a href="#熵与KL散度" class="headerlink" title="熵与KL散度"></a>熵与KL散度</h2><p><strong>信息熵（Entropy,  $  H  $ ）</strong> 衡量的是一个随机变量的不确定性。对于一个离散概率分布  $  P(X)  $ ，其熵定义为：</p>
+<script type="math/tex; mode=display">
+H(P) = -\sum_{x \in X} P(x) \log P(x)</script><p>其中， $  P(x)  $  是随机变量  $  X  $  取值  $  x  $  的概率， $ \log $  通常以 2 为底（单位为比特）或以  $  e  $  为底（单位为纳特，nats）。</p>
+<p><strong>交叉熵（Cross-Entropy,  $  H(P, Q)  $ ）</strong> 衡量的是当实际分布为  $  P  $  时，用分布  $  Q  $  进行编码的期望信息量。定义如下：</p>
+<script type="math/tex; mode=display">
+H(P, Q) = -\sum_{x \in X} P(x) \log Q(x)</script><p>如果  $  P = Q  $ ，则交叉熵等于信息熵（ $  H(P, P) = H(P)  $ ），否则  $  H(P, Q) \geq H(P)  $ 。</p>
+<p><strong>KL 散度（Kullback-Leibler Divergence,  $  D_{KL}(P \parallel Q)  $ ）</strong>（或相对熵）衡量的是两个概率分布  $  P  $  和  $  Q  $  之间的差异，定义为：</p>
+<script type="math/tex; mode=display">
+D_{KL}(P \parallel Q) = \sum_{x \in X} P(x) \log \frac{P(x)}{Q(x)}</script><p>KL 散度可以通过交叉熵与信息熵的关系表示：</p>
+<script type="math/tex; mode=display">
+D_{KL}(P \parallel Q) = H(P, Q) - H(P)</script><p>这表明，KL 散度衡量了使用分布  $  Q  $  进行编码相比于最优分布  $  P  $  额外的编码代价（即冗余信息量）。由于交叉熵总是大于等于信息熵，因此 KL 散度总是非负的，即  $  D_{KL}(P \parallel Q) \geq 0  $ ，当且仅当  $  P = Q  $  时取 0。</p>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p><img src="https://pic2.zhimg.com/v2-8d95e327dbd71c9fd5cacbf57bbc2d4f_r.jpg" alt=""></p>
+<p>LLM可视化结构参见：<a target="_blank" rel="noopener" href="https://bbycroft.net/llm">https://bbycroft.net/llm</a></p>
+<ul>
+<li><strong>Encoder</strong>:  <ul>
+<li>由多层堆叠的 <strong>Self-Attention</strong> 和 <strong>Feed-Forward Network (FFN)</strong> 组成。  </li>
+<li><strong>输入流程</strong>: 输入嵌入 → 位置编码 → 多头自注意力 → Add &amp; LayerNorm → FFN → Add &amp; LayerNorm。  </li>
+</ul>
+</li>
+<li><strong>Decoder</strong>:  <ul>
+<li>在 Encoder 基础上增加 <strong>Encoder-Decoder Attention</strong> 层。  </li>
+<li>自注意力层使用 <strong>Masked Attention</strong>（防止看到未来信息）。  </li>
+<li><strong>输入流程</strong>: 输入嵌入 → 位置编码 → 掩码多头自注意力 → Add &amp; LayerNorm → 编码器-解码器注意力 → Add &amp; LayerNorm → FFN → Add &amp; LayerNorm。 </li>
+</ul>
+</li>
+</ul>
+<p>自注意力机制通过计算输入序列中每个位置与其他位置的 Attention Scores ，动态捕捉全局依赖关系。具体步骤：  </p>
+<ol>
+<li>将输入向量通过线性变换生成Query（Q）、Key（K）、Value（V）。  </li>
+<li>计算注意力分数： <script type="math/tex">\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V</script><br>其中  $ d_k $  是Key的维度，用于缩放梯度。  </li>
+<li>多头注意力（Multi-Head）将Q、K、V分割到多个子空间并行计算，增强模型对不同语义关系的捕捉能力。  </li>
+</ol>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><ul>
+<li><strong>残差连接</strong>：<ul>
+<li>作用：保留输入信息，缓解梯度消失问题，提高训练稳定性。</li>
+</ul>
+</li>
+<li><strong>FFN</strong>：<ul>
+<li>作用：Self-Attention 主要负责捕捉长距离依赖关系，但它本身是线性的，缺乏强大的特征提取能力。FFN 提供非线性变换，提高特征表达能力。对attention score先升维后降维让模型更好地整理、精炼已经被注意力提取的信息</li>
+<li>self attention是token mixer。FFN是channel mixer。也就是说attention会混合多个token的信息来提取特征，但每个channel（特征维度）保持独立。而FFN不混合token，而是混合不同的feature channel。两种计算操作不同的层面来提取特征，相得益彰。</li>
+</ul>
+</li>
+<li><strong>Layer Normalization (LN)</strong>:  <ul>
+<li>对同一样本的所有特征进行归一化。  </li>
+<li>作用：稳定训练，防止分布偏移，提高模型收敛速度。</li>
+<li><strong>公式</strong>:   <script type="math/tex">\text{LN}(x) = \gamma \cdot \frac{x - \mu}{\sigma} + \beta</script><br>其中  $ \mu, \sigma $  是样本的均值和标准差， $ \gamma, \beta $  是可学习参数。  </li>
+</ul>
+</li>
+<li><strong>其他归一化方式</strong>:  <ul>
+<li><strong>Root Mean Square Layer Normalization (RMSNorm)</strong>: 在 LN 的基础上不再计算均值，只计算均方根来衡量数据的平均幅度，加快计算速度，增加训练效率。当 $ \mu = 0 $ 时，LN == RMSNorm</li>
+<li><strong>Batch Normalization (BN)</strong>: 对不同样本的同一特征归一化，适合固定长度的数据（如图像）。  </li>
+</ul>
+</li>
+<li>encoder decoder 区别：<ul>
+<li>Decoder block 的第一个 Multi-Head Attention 采用了 Masked 操作；第二个 MHA 根据 Encoder 的输出 C 计算得到 K, V，根据上一个 Decoder block 的输出 Z 计算 Q (如果是第一个 Decoder block 则使用输入矩阵 X 进行计算)，后续的计算方法与之前描述的一致。</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/338817680">Transformer模型详解（图解最完整版） - 知乎</a></p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>为什么要将 $ QK^T $ 进行scale</strong><br>$ K^T $ 维度为 $ d_k $ ， $ d_k $ 很大， $ QK^T $ 点乘结果方差过大，让softmax函数退化成argmax，导致梯度消失。</p>
+<p><strong>为什么要用 $ \sqrt{d_k} $ 进行scale</strong><br>这是 $ QK^T $ 的方差，这样操作可以把它归一化成服从正态分布的量。</p>
+<p><strong>为什么用 LN 而非 BN？</strong>  </p>
+<ul>
+<li>BN 不适用于不定长序列，但 NLP 中序列长度可变。LN 不受批次、序列长度影响。</li>
+<li>BN 会损失信息差异性，在 batch 中归一化，会抹平不同样本差异，而训练 LLM 需要不同信息的差异。</li>
+</ul>
+<p><strong>为什么要用MHA</strong><br>一个 attention head 可能会过度将注意力集中于自身的位置，MHA 的输出包含不同子空间的编码表示信息，可以学到多维度的特征信息，从而增强模型的表达能力。同时 MHA 可并行计算，便于 Scale Up，提升计算效率。</p>
+<p><strong>与RNN相比的优势</strong>：  </p>
+<ul>
+<li><strong>并行性</strong>：自注意力可同时计算所有位置的关联，便于Scale Up；而RNN是串行的，需逐步处理。（encoder的MHA和FFN是并行的，decoder在训练时可以，但由于mask的存在，推理阶段是串行的）</li>
+<li><strong>长距离依赖</strong>：无论序列长度，任意两位置的交互只需一步计算，避免RNN的梯度消失/爆炸问题。  </li>
+</ul>
+<p><strong>为什么现在的LLM都是Decoder only的架构？</strong></p>
+<ul>
+<li>Decoder架构主要是是为了预测下一个输出token，而这个任务更适配大模型的上下文学习。</li>
+<li>Pipeline Parallel 流水并行的训练并行度最高，它的条件是需要一个规整对称的、线性顺序的网络结构，而 Decoder-Only 的架构最为简单，方便于 Scale Up，基于 Scaling Laws 的实际训练成本最低。 Encoder-Decoder 和 Encoder-Only 架构的优势无法弥补训练成本的大幅提升。</li>
+</ul>
+<p>Encoder 架构的问题：</p>
+<ul>
+<li>Encoder 的 attention 是 双向的，不能像 decoder 那样顺序处理 → 导致需要一次性处理整个输入 → 并行切不动。</li>
+<li>Encoder-decoder 通常等 encoder 处理完所有输入后，decoder 才能开始 → 串行依赖严重，无法并发。</li>
+<li>Encoder-decoder 有两个不同网络 → 不对称 → 切分困难，资源利用率低。</li>
+</ul>
+<h3 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a>初始化方法</h3><ul>
+<li><strong>Xavier/Glorot 初始化</strong>: 适用于 Sigmoid/Tanh 激活函数，使得前向传播时信号方差保持稳定，方差为  $ 2 / (n<em>{\text{in}} + n</em>{\text{out}}) $ 。  </li>
+<li><strong>He 初始化</strong>: 适用于 ReLU，保证前向和反向传播时信号不易消失或爆炸，方差为  $ 2/n_{\text{in}} $ 。  </li>
+<li><strong>正交初始化</strong>: 保持矩阵正交性，防止梯度爆炸/消失。  </li>
+</ul>
+<p><strong>全零初始化的缺陷</strong>  </p>
+<ul>
+<li><strong>对称性问题</strong>: 所有神经元输出相同，反向传播时梯度对称，导致无法学习差异特征。  </li>
+</ul>
+<h2 id="位置编码与位置外推"><a href="#位置编码与位置外推" class="headerlink" title="位置编码与位置外推"></a>位置编码与位置外推</h2><p>对于不带Attention Mask的纯Attention模型，它是全对称的。因此self-attention的运算是无向的，token的位置是无法分辨的信息，因此要给每个位置都加上一个位置编码向量。</p>
+<p>位置外推能力是指模型处理超过其训练序列长度的输入序列的能力，从而能够在扩展序列上保留上下文和一致性，即 <strong>Train short, test long.</strong></p>
+<h3 id="正弦函数位置编码"><a href="#正弦函数位置编码" class="headerlink" title="正弦函数位置编码"></a>正弦函数位置编码</h3><p>vanilla transformer使用正弦函数位置编码</p>
+<ol>
+<li><strong>绝对性</strong>: 每个token的向量唯一（每个sin函数的频率足够小）</li>
+<li>位置向量的值是有界的，且位于连续空间中。模型在处理位置向量时更容易泛化，即更好处理长度和训练数据分布不一致的序列（sin函数本身的性质）</li>
+<li><strong>相对性</strong>: 不同的位置向量是可以通过一个旋转矩阵的线性转换得到的，即 <script type="math/tex; mode=display">PE_{t+△t}=T_{△t}*PE_t</script></li>
+<li><strong>距离衰减性</strong>: 两个位置编码的点积(dot product)仅取决于偏移量 $ △t $  ，内积越小，两个点距离越远</li>
+</ol>
+<p>存在的问题：</p>
+<ol>
+<li><strong>对称性</strong>: 位置编码的点积是无向的，即  <script type="math/tex; mode=display">PE_t^T∗PE_{t+△t}=PE_t^T∗PE_{t-△t}</script>虽然位置向量的点积可以用于表示距离(distance-aware)，但是它却不能用来表示位置的方向性(lack-of-directionality)</li>
+<li>当位置编码随着input被喂进attention层时，采用的映射方其实是： <script type="math/tex; mode=display">PE_t^TW_Q^TW_KPE_{t+k}</script>所以进入attention层之后，内积的距离意识(distance-aware)的模式遭到了破坏。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/454482273">Transformer学习笔记一：Positional Encoding（位置编码） - 知乎</a></p>
+<h3 id="ALiBi"><a href="#ALiBi" class="headerlink" title="ALiBi"></a>ALiBi</h3><p>ALiBi工作于attention计算过程中：在计算attention score的时候，会对之前位置的分数按照与当前位置的差距进行不同程度的惩罚。具体来说，在qk点积时，增加携带位置信息的惩罚$softmax(q_iK^T+m\left[-(i-1),…,-2,-1,0\right])$<br><img src="https://picx.zhimg.com/v2-336ca89b4ec0cc6db5ee297f3ee16b53_r.jpg" alt=""></p>
+<h3 id="RoPE"><a href="#RoPE" class="headerlink" title="RoPE"></a>RoPE</h3><p>RoPE是当前大模型标配的位置编码方式。这种编码不是作用在embedding的输入层，而是作用在与Attention的计算中。它使用旋转矩阵对绝对位置进行编码，同时在自注意力公式中结合了明确的相对位置依赖性。</p>
+<p>具体来说，RoPE首先计算query矩阵和key矩阵，接着将每个位置的query和key向量的元素按照两两一组应用旋转变换，最后再利用注意力分数对value矩阵进行加权。</p>
+<p><a target="_blank" rel="noopener" href="https://kexue.fm/archives/8265">https://kexue.fm/archives/8265</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/863378538">https://zhuanlan.zhihu.com/p/863378538</a></p>
+<h3 id="其他长上下文方法"><a href="#其他长上下文方法" class="headerlink" title="其他长上下文方法"></a>其他长上下文方法</h3><p>由于 KV cache 的存在，输入文本越长占用显存越多。在位置编码方式不变的前提下，可以通过模型优化来降低使用的显存，从而容纳更多上下文。具体见<a href="#各种优化">各种优化</a>章节。</p>
+<h2 id="MoE"><a href="#MoE" class="headerlink" title="MoE"></a>MoE</h2><ul>
+<li>与稠密模型相比， <strong>预训练速度更快</strong></li>
+<li>与具有相同参数数量的模型相比，具有更快的 <strong>推理速度</strong></li>
+<li>需要 <strong>大量显存</strong>，因为所有专家系统都需要加载到内存中</li>
+<li><strong>微调难度更大</strong></li>
+</ul>
+<p>因此为开源社区打造的 LLM 更倾向于稠密模型，为大公司打造的更倾向于 MoE。</p>
+<p>而且稠密模型可以更新成 MoE，反之不行</p>
+<p><img src="https://thelmbook.com/articles/img/decoder-block-3-MoE.drawio.png" alt=""></p>
+<p>混合专家模型主要由两个关键部分组成:</p>
+<ul>
+<li><strong>稀疏 MoE 层</strong>: 这些层代替了传统 Transformer 模型中的前馈网络 (FFN) 层。MoE 层包含若干”专家”(例如 8 个)，通常是前馈网络 (FFN)，也可以是更复杂的网络结构，甚至可以是 MoE 层本身</li>
+<li><strong>门控网络或路由</strong>: 这个部分用于决定哪些令牌 (token) 被发送到哪个专家。路由器由学习的参数组成，并且与网络的其他部分一同进行预训练。</li>
+</ul>
+<p><img src="https://thelmbook.com/articles/img/MoE.drawio.png" alt=""></p>
+<p>流程：</p>
+<ul>
+<li><strong>Gating / Router</strong>:  <script type="math/tex">G(x)=Softmax(TopK(x⋅W_g + Noise​, k))</script><br>如果所有的令牌都被发送到只有少数几个受欢迎的专家，那么训练效率将会降低。为了缓解这个问题，引入了一个 辅助损失，旨在鼓励给予所有专家相同的重要性。这个损失确保所有专家接收到大致相等数量的训练样本，从而平衡了专家之间的选择。</li>
+<li><strong>Dispatch</strong>: 将输入token根据上一步得到的权重分发给对应的专家FFN</li>
+<li><strong>Combine</strong>: 最终输出是各个专家的输出根据 gating score 的加权求和</li>
+</ul>
+<p>稀疏混合专家模型 (MoE) 适用于拥有多台机器且要求高吞吐量的场景。在固定的预训练计算资源下，稀疏模型往往能够实现更优的效果。相反，在显存较少且吞吐量要求不高的场景，稠密模型则是更合适的选择。<br><a target="_blank" rel="noopener" href="https://huggingface.co/blog/zh/moe">混合专家模型（MoE）详解</a><br><a target="_blank" rel="noopener" href="https://thelmbook.com/articles/#!./MoE.md">Mixture of Experts in LLMs Explained</a></p>
+<h2 id="各种优化"><a href="#各种优化" class="headerlink" title="各种优化"></a>各种优化</h2><ul>
+<li>KV cache<ul>
+<li>KV缓存通过存储之前生成的tokens的键向量(key vector)和值向量(value vector)，避免了重复计算。当生成新token时，只需使用缓存中的键向量和值向量进行计算。这是一个<strong>用存储换效率</strong>的方案。从数学来说，KV缓存需要O(N^2)的空间复杂度。</li>
+<li>好处是计算复杂度从token长度的平方降低到线性，显著提高了推理效率。在处理长序列或大批次数据时，效果尤其显著。</li>
+<li>坏处是KV矩阵占用的缓存大小与token长度的平方成正比：当token长度增加时，GPU缓存占用急剧上升。</li>
+</ul>
+</li>
+<li>MHA MQA GQA （三字狂魔）<ul>
+<li><img src="https://i-blog.csdnimg.cn/blog_migrate/f0594f350a3aa115a15b2e8b35ed0dea.jpeg" alt="MHA、MQA、GQA区别和联系-CSDN博客"></li>
+</ul>
+</li>
+<li>MLA<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/16730036197">https://zhuanlan.zhihu.com/p/16730036197</a></li>
+</ul>
+</li>
+<li>Linear Attention<ul>
+<li>注意力机制复杂度 n^2 的来源：由于有 softmax 存在，需要先计算 Q×K^T 得到一个 n*n 的矩阵，再右乘一个 n×d 大小的 V ，因此时间复杂度 O(n)= kn^2。如果去掉 softmax 就可以先算 K^T×V ，大小 d×n 的 乘 n×d 的 得到 d×d 的矩阵，再左乘 n×d 的 Q， 时间复杂度 O(n)= nk^2</li>
+<li><a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/7546">线性Attention的探索：Attention必须有个Softmax吗？ - 科学空间|Scientific Spaces</a></li>
+</ul>
+</li>
+<li>Sparse Attention<ul>
+<li>只计算距离当前相对距离不超过k的、相对距离为k,2k,3k,…位置的注意力分数，让 Attention 具有“局部紧密相关和远程稀疏相关”的特性，因为真正需要密集的长程关联的任务事实上是很少的。</li>
+<li><a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/6853#Sparse%20Self%20Attention">https://spaces.ac.cn/archives/6853#Sparse%20Self%20Attention</a></li>
+</ul>
+</li>
+<li>量化、压缩模型</li>
+</ul>
+<h2 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h2><h3 id="Perplexity-PPL-困惑度（预训练阶段）"><a href="#Perplexity-PPL-困惑度（预训练阶段）" class="headerlink" title="Perplexity PPL 困惑度（预训练阶段）"></a>Perplexity PPL 困惑度（预训练阶段）</h3><p>对于一个随机变量，</p>
+<script type="math/tex; mode=display">\text{PPL}= 2^{H(p)} = 2^{-\sum_{x\in X} p(x){log}_2p(x)}</script><p>对于两个分布之间，</p>
+<script type="math/tex; mode=display">
+\text{PPL} = 2^{H(p_r, p_\theta)}</script><p>其中， $  H(p<em>r, p</em>\theta)  $  是真实分布  $  p<em>r  $  和模型分布  $  p</em>\theta  $  之间的交叉熵：</p>
+<script type="math/tex; mode=display">H(p_r, p_\theta) = - \sum_{s} p_r(s) \log_2 p_\theta(s)</script><p>因为我们只有给定语料 $ S $ 没有真实分布  $  p_r  $ ，所以我们假设 $  p_r = 1/n  $ ，因此得到</p>
+<script type="math/tex; mode=display">
+\text{PPL}(S) = 2^{-\frac{1}{n} \sum_{i=1}^{n} \log_2 p_\theta(w_i \mid w_1, \dots, w_{i-1})} \\
+= \left( \prod_{i=1}^{n} p_\theta(w_i \mid w_1, \dots, w_{i-1}) \right)^{-1/n} = p_\theta(s)^{-1/n}</script><p>实际计算时为了节省计算量不计算n个，采用滑动窗口：<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ppl_sliding.gif" alt="Sliding window PPL taking advantage of all available context"></p>
+<h3 id="BLEU"><a href="#BLEU" class="headerlink" title="BLEU"></a>BLEU</h3><h2 id="decoding-策略"><a href="#decoding-策略" class="headerlink" title="decoding 策略"></a>decoding 策略</h2><ul>
+<li>top-p: 仅从累计概率达到 p 的候选 token 中进行采样，去掉尾部低概率 token。</li>
+<li>top-k: 仅从概率最高的 K 个 token 中随机采样，忽略其他候选 token。</li>
+<li>temperature: $  P_i = \frac{\exp(\frac{\log P_i}{T})}{\sum \exp(\frac{\log P_j}{T})}  $ <ul>
+<li>$  T &gt; 1  $ ：概率分布变得更均匀，增加随机性，文本更有创造力，但可能不连贯。</li>
+<li>$  T &lt; 1  $ ：概率分布更陡峭，模型更倾向于选择最高概率的 token，使输出更确定，但可能缺乏多样性。</li>
+<li>$  T=0  $  时，等价于贪心（Greedy Decoding）。</li>
+</ul>
+</li>
+<li>beam-search: 在每一步保留 B（beam size）个最有可能的序列，并扩展它们，最终选择得分最高的序列。适用于翻译等需要高质量、确定性的任务，但可能导致文本缺乏多样性。</li>
+<li>Best-of-N: 生成 N 个候选文本序列，然后选择得分最高的一个作为最终输出。</li>
+<li>Majority Vote: 生成多个候选文本序列，对它们进行投票，选择出现最多的 token 作为最终输出。</li>
+</ul>
+<h2 id="LoRA"><a href="#LoRA" class="headerlink" title="LoRA"></a>LoRA</h2><p>大型预训练模型参数量巨大，但在特定下游任务上，并不是所有参数都需要更新。LoRA 借鉴了这一思想，提出了一种<strong>低秩分解（low-rank decomposition）</strong>的方法来更新模型参数，从而大幅减少需要微调的参数量。</p>
+<p>具体来说，对于预训练模型中的任何一个参数矩阵 $W_0 \in \mathbb{R}^{n \times m}$，LoRA 不直接对 $W_0$ 进行微调，而是引入一个低秩矩阵的增量 $\Delta W$：</p>
+<script type="math/tex; mode=display">\Delta W = AB</script><p>其中 $A \in \mathbb{R}^{n \times r}$ 且 $B \in \mathbb{R}^{r \times m}$，而 $r$ 是一个非常小的<strong>秩（rank）</strong>。<br>因此，微调后的新矩阵 $W$ 可以表示为：</p>
+<script type="math/tex; mode=display">W = W_0 + \Delta W = W_0 + AB</script><p>在微调过程中，我们固定原始的 $W_0$ 参数，只训练 $A$ 和 $B$ 这两个小矩阵。由于秩 $r$ 远小于 $n$ 和 $m$，所以 $A$ 和 $B$ 的总参数量远小于 $W_0$ 的参数量，从而实现了高效的微调。<br><img src="https://pic4.zhimg.com/v2-92b10bf21cb3fe6e67bbbf7be3774847_1440w.jpg" alt="大模型高效微调-LoRA原理详解和训练过程深入分析- 知乎"></p>
+<p><a target="_blank" rel="noopener" href="https://kexue.fm/archives/9590">https://kexue.fm/archives/9590</a></p>
+<h2 id="增强模型推理能力的方法"><a href="#增强模型推理能力的方法" class="headerlink" title="增强模型推理能力的方法"></a>增强模型推理能力的方法</h2><ol>
+<li>推理时间扩展： 思维链提示、多数投票、Best-of-N</li>
+<li>强化学习(RL)： Deepseek R1 Zero</li>
+<li>SFT+RL: Deepseek R1 </li>
+<li>蒸馏： Deepseek R1 Distill</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35812205/article/details/145788766">【LLM】增强大模型推理能力的四种范式_大模型的推理、微调、对齐、蒸馏-CSDN博客</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/19716537069">大模型推理能力提升的一个技术总结 - 知乎</a></p>
+<h2 id="Agent"><a href="#Agent" class="headerlink" title="Agent"></a>Agent</h2><p><strong>OpenAI提出的智能体五层级</strong>演进过程：</p>
+<ol>
+<li><p>第一阶段，<strong>知识获取智能体</strong>。模型主要通过人机对话的方式进行信息交互与知识传递，表现为一种响应式的知识库，如ChatGPT的早期版本。（因此非推理大模型其实就是一种 RAG 系统，从训练的模型参数中检索世界知识；外置知识库的 RAG 系统效果不好，只是对大模型的拙劣模仿）</p>
+</li>
+<li><p>第二阶段，<strong>认知推理智能体</strong>。模型能力深化，能够处理复杂的认知任务，进行深度逻辑推理与抽象思考，从而胜任奥林匹克数学竞赛、科学研究推导等高级智力活动，成为增强人类智识的”智能助手”。如 OpenAI o3.</p>
+</li>
+<li><p>第三阶段，<strong>自主执行智能体（我们在这）</strong>。模型具备在真实或虚拟环境中自主完成任务的能力，如Claude Code。它不仅限于代码生成等单一指令，而是能够形成”感知-规划-行动-反馈”的闭环，展现出初级的<strong>能动性（Agency）</strong>。此阶段的能力在2025年2月于国际上达到了技术应用的引爆点。</p>
+</li>
+<li><p>第四阶段，<strong>创新发现智能体</strong>。模型的能力从任务执行跃迁至知识创造，能够生成新颖的、具有突破性的见解或成果，推动科学发现与技术创新，标志着其从”执行者”向”创新者”的角色转变，展现出真正的创造力。</p>
+</li>
+<li><p>第五阶段，<strong>协同多智能体系统</strong>。模型发展为复杂的生态系统，其中多个独立的智能体可以进行自主的分工、协作与协同进化。它们能够构建起虚拟的组织架构，跨领域合作，解决大规模、系统性的复杂问题。</p>
+</li>
+</ol>
+<h1 id="LLM-RL-笔记"><a href="#LLM-RL-笔记" class="headerlink" title="LLM RL 笔记"></a>LLM RL 笔记</h1><p>见<a href="/posts/991b.html" title="LLM RL 从入门到入土">LLM RL 从入门到入土</a></p>
+</div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a target="_blank" rel="noopener" href="https://github.com/TiffanyBlews">Github</a></li><li><a href="../mailto:wangtheneighbor@gmail.com">Mail</a></li><li><a target="_blank" rel="noopener" href="https://space.bilibili.com/6592870">Bilibili</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1919/">1919</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%AD%A6%E6%9C%AF%E3%80%81%E6%8A%80%E6%9C%AF%E5%90%91/">学术、技术向</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%9E%E5%AD%A6%E6%9C%AF%E5%90%91/">非学术向</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/neo4j/" rel="tag">neo4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E4%BA%8C%E8%AF%AD%E4%B9%A0%E5%BE%97/" rel="tag">二语习得</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E4%BA%9A%E6%96%87%E5%8C%96/" rel="tag">亚文化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%85%AB%E8%82%A1/" rel="tag">八股</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%8C%BB%E5%AD%A6/" rel="tag">医学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%93%B2%E5%AD%A6/" rel="tag">哲学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" rel="tag">因果推断</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag">多模态</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%AE%89%E5%88%A9/" rel="tag">安利</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%AA%90%E6%9E%AB%E5%8A%A8%E6%BC%AB%E7%A4%BE/" rel="tag">檐枫动漫社</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%BC%94%E8%AE%B2/" rel="tag">演讲</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/" rel="tag">网络技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BE%8E%E5%A6%86/" rel="tag">美妆</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%A1%8C%E5%8A%A8/" rel="tag">行动</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%A7%82%E5%90%8E%E6%84%9F/" rel="tag">观后感</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AF%84%E4%BB%B7/" rel="tag">评价</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" rel="tag">语言学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="991b.html">LLM RL 从入门到入土</a><a class="next-button" href="c0a4.html">为什么我推荐你学习芬兰语</a></div><div id="comments"></div><script src="https://www.unpkg.com/valine/dist/Valine.min.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
+  new Valine({
+    el: '#comments',
+    appId: 'BD60D1TRxaryY1fKVSpZ9aov-gzGzoHsz',
+    appKey: 'MEom5rIRpMudZrUV2688BAtW',
+    notify: false,
+    verify: false,
+    avatar: 'mp',
+    placeholder: 'yay',
+  })
+})</script></div></div></div><div class="footer"><span>©️2019-2026 Designed By&nbsp;<strong><a target="_blank" rel="noopener" href="https://github.com/random-yang">RandomYang</a></strong> Powered By&nbsp;</span><strong><a target="_blank" rel="noopener" href="https://hexo.io">hexo</a></strong>&nbsp; &nbsp; &nbsp;<a href="https://icp.gov.moe/?keyword=20241421" target="_blank">萌ICP备20241421号</a></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

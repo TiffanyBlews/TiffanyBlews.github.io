@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><meta name="description" content="LLM RL 从入门到入土 - TiffanyBlews's Blog"><meta name="theme-color" content="#ebc65a"><title>LLM RL 从入门到入土 - TiffanyBlews's Blog</title><style>@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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BL3+M1K+NfPvjlJEHZTOrkYvtdprqx0Hka+W/IhsQoUJE0jsPVOhV2itgp3Wame8dsB73DeCOfp+FMSxp2At3aozP1zVQ/tmEpXdveum7kat3CaLXRcmTZHmOveMiqxSteCZOrGKmscOa9WycTUXtRFabrtts1Nb3e5qHtqWPMWtuEkMSdydcarhKoTcVXtBgujKwULbPFJvqywIzBjboUacECG6ajlIews5dBUMkJ/LYHa12gpRLEsBDAAA6raxOaTnbx4GG5J6hdn4twxT1DRvEQZvD6banOa3BbstVh48efHmw5cffwECBQkWIvK/LTbhIkSKEi1GrDjxEiRKkixFqjTpMmTKki1Hrjz5ChQqUqxEqTLlKlSqUq2e+hpoqJHGmmiqmeZhWGKoYfaZ7qXhxhtjnlWWxsBotw0xxWdfjDPDSEfc98l8q33z1XeLrXPKCeu10NJErZzR2kmnXXDWOee90sYVF12yQVsfTXLdVde088Y7o3TQXkedddLFQnb/qVGrq24cuuvhtZ5666WPfvraaZEB+htokLfe2+1GBDbalARuuueWzbbYboejttrmmBHW2O+AvUmRDMb6EEUsHHQoDskRjxRIiVRILev2qn1oaGpomZOB2z/jmn/eUk6tvaZda/5znbhPCguQ7wsEvd1strBI3OYR8ye01+ZO0jbH36oqKm37w90hl2v/wO5o3vIjtpoZx20H) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><script src="https://cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js" defer></script><script src="/js/paper.js" defer></script><script src="https://www.googletagmanager.com/gtag/js?id=xx-xxxxxxx-xx" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'xx-xxxxxxx-xx');</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '.toc__content',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.article__content',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+    orderedList: false,
+    collapseDepth: 2,
+  });
+})</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+  }
+});
+MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><link rel="preload" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap"><meta name="generator" content="Hexo 5.4.2"></head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">TiffanyBlews's Blog</a></h1><p>我们所经历的每个平凡的日常，也许就是连续发生的奇迹。</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text">LLM RL 从入门到入土</p><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">LLM RL 从入门到入土</a></h2><span class="post__date">2025-08-20</span><a href="../tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><span class="post__tags">#大模型</span></a><a href="../tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="post__tags">#强化学习</span></a><a href="../tags/%E7%AC%94%E8%AE%B0/"><span class="post__tags">#笔记</span></a><a href="../tags/%E5%85%AB%E8%82%A1/"><span class="post__tags">#八股</span></a></div></div><div class="article__content"><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#llm-rl">LLM RL</a><ul>
+<li><a href="#rlhf">RLHF</a></li>
+<li><a href="#奖励模型">奖励模型</a></li>
+<li><a href="#从策略梯度算法到-ppo">从策略梯度算法到 PPO</a><ul>
+<li><a href="#1-策略梯度">1. 策略梯度</a></li>
+<li><a href="#2-actor-critic-ac">2. Actor-Critic (AC)</a></li>
+<li><a href="#3-trpo">3. TRPO</a></li>
+<li><a href="#4-ppo">4. PPO</a></li>
+</ul>
+</li>
+<li><a href="#ppo">PPO</a><ul>
+<li><a href="#概念与组成">概念与组成</a></li>
+<li><a href="#训练流程">训练流程</a></li>
+<li><a href="#公式推导">公式推导</a><ul>
+<li><a href="#1-确立总目标函数">1. 确立总目标函数</a></li>
+<li><a href="#2-将总目标分解为每一步的奖励信号">2. 将总目标分解为每一步的奖励信号</a></li>
+<li><a href="#3-应用策略梯度定理">3. 应用策略梯度定理</a></li>
+<li><a href="#4-用优势函数作为权重">4. 用优势函数作为“权重”</a></li>
+<li><a href="#5-构建-actor-model-的损失函数">5. 构建 actor model 的损失函数</a></li>
+<li><a href="#6-构建-critic-model-的损失函数">6. 构建 critic model 的损失函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#dpo">DPO</a><ul>
+<li><a href="#dpo-vs-sft"><strong>DPO vs SFT</strong></a></li>
+<li><a href="#dpo-vs-ppo"><strong>DPO vs PPO</strong></a></li>
+<li><a href="#不同-epoch-学的内容一样吗"><strong>不同 Epoch 学的内容一样吗？</strong></a></li>
+<li><a href="#如何初始化策略模型"><strong>如何初始化策略模型</strong></a></li>
+<li><a href="#为什么有时候dpo只需要一个模型表现收敛性易训性却比ppo好"><strong>为什么有时候DPO只需要一个模型，表现(收敛性、易训性)却比PPO好？</strong></a></li>
+</ul>
+</li>
+<li><a href="#deepseek-r1-与-grpo">Deepseek R1 与 GRPO</a></li>
+<li><a href="#gspo等">GSPO等</a></li>
+<li><a href="#reward-hacking">Reward Hacking</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="LLM-RL"><a href="#LLM-RL" class="headerlink" title="LLM RL"></a>LLM RL</h1><p>典型RL中智能体与环境的交互过程如下：</p>
+<ul>
+<li>在  $ t $  时刻，环境的状态为  $ S_t $  ，达到这一状态所获得的奖励为  $ R_t $ </li>
+<li>智能体观测到  $ S_t $  与  $ R_t $  ，采取相应动作  $ A_t $ </li>
+<li>智能体采取  $ A<em>t $  后，环境状态变为  $ S</em>{t+1} $  ，得到相应的奖励  $ R_{t+1} $ </li>
+</ul>
+<p>智能体在这个过程中学习，它的最终目标是：找到一个策略，这个策略根据当前观测到的环境状态和奖励反馈，来选择最佳的动作。</p>
+<p><strong>什么任务适合用 RL 做？</strong></p>
+<ul>
+<li>对于存在 Ground Truth 信号的任务（数学etc）来说，有一个明确的好答案标准、存在上限的任务适合 SFT ；难以标注（或定义）好答案，但很容易进行判别结果是否正确的任务，适合 RL。</li>
+<li>对于不存在 Ground Truth 信号的任务（创作）来说，没有理想标准（或者标准更迭很快）、存在一些数据不一致性的场景适合 RL 。虽然我们不知道这个问题的最完美的答案是怎样的，但我们总能在当前的几个候选答案里找出最好的那一个。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25269200188">到底什么任务适合用 RL 做？ - 知乎</a></p>
+<h2 id="RLHF"><a href="#RLHF" class="headerlink" title="RLHF"></a>RLHF</h2><p><strong>核心流程</strong>：  </p>
+<ol>
+<li><strong>预训练</strong>：用大规模文本数据训练初始语言模型（LM）。  </li>
+<li><strong>奖励模型训练</strong>：通过人类标注的偏好数据（如对多个回答排序），训练奖励模型（RM）。  </li>
+<li><strong>强化学习微调</strong>：使用PPO等算法，以RM为奖励信号优化LM，使其生成更符合人类偏好的输出。  </li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/blog/zh/rlhf">ChatGPT 背后的”功臣”———RLHF 技术详解</a></p>
+<h2 id="奖励模型"><a href="#奖励模型" class="headerlink" title="奖励模型"></a>奖励模型</h2><p>我们希望获得人类偏好的分布，x代表输入的prompt，两个不同的输出y1，y2，假设y1比y2好，这是个概率，我们希望最终的模型是完美的，每进一个x，能够打分：</p>
+<script type="math/tex; mode=display">p^*(y_1\succ y_2\mid x)=\frac{\exp\left(r^*(x,y_1)\right)}{\exp\left(r^*(x,y_1)\right)+\exp\left(r^*(x,y_2)\right)}.</script><p>p<em> 表示在理想情况下，模型输出 $y_1$​ 优于 $y_2$​ 的概率。<br>r</em> 是最优的（optimal）、无法直接获得的奖励函数。</p>
+<p>这就是 Bradley-Terry模型。假设对于问题 <code>x</code>，奖励模型给回答 <code>y1</code> 打了3分，给回答 <code>y2</code> 打了1分。<br>那么，模型预测人类认为 <code>y1</code> 比 <code>y2</code> 好的概率就是：</p>
+<script type="math/tex; mode=display">P(y_1 \succ y_2 \mid x) = \frac{e^3}{e^3 + e^1} = \frac{20.08}{20.08 + 2.72} \approx 0.88</script><p>这意味着，模型有88%的把握认为人类会选择 <code>y1</code> 而不是 <code>y2</code>。</p>
+<ul>
+<li>对同一提示，标注员对多个模型生成的回答进行排序（如A &gt; B &gt; C），构造为三元组  $ (x, y_w, y_l) $ ，其中  $ y_w $  是更优的回答。  </li>
+<li>我们通常使用最大似然估计（Maximum Likelihood Estimation）的原则来构建损失函数。通俗地说，就是“让已经发生的事情（即我们收集到的人类偏好数据）在模型看来，发生的概率最大”。对于一个偏好数据 <code>(x, y_w, y_l)</code>，我们希望最大化模型预测它发生的概率，也就是最大化上面的 $P^(y_w \succ y_l\mid x)$。</li>
+<li>在实践中，直接最大化概率的乘积（对于整个数据集）在计算上很困难，所以我们通常会：<ul>
+<li>取对数（Logarithm），将乘积问题变为加法问题，这不改变最优解。这就是对数似然（Log-Likelihood）。</li>
+<li>将“最大化”问题转化为等价的“最小化”问题，只需在前面加一个负号。</li>
+</ul>
+</li>
+<li>这样，我们就得到了奖励模型最常用的损失函数（Loss Function）—— 负对数似然损失（Negative Log-Likelihood Loss）。<script type="math/tex; mode=display">\mathcal{L} = -\log \left( \frac{\exp(r(x, y_w))}{\exp(r(x, y_w)) + \exp(r(x, y_l))} \right)\\
+ = \log(1 + \exp(r(x, y_l) - r(x, y_w)))</script></li>
+<li>或者用sigmoid函数写作<script type="math/tex; mode=display">\mathcal{L} = -\log \sigma\left(r(x, y_w) - r(x, y_l)\right)</script></li>
+<li>reward model通过SFT后的LLM加一层线性层去初始化</li>
+</ul>
+<p><img src="https://pic4.zhimg.com/v2-1e80c1f618d700271b9f0e2ffd183e77_r.jpg" alt=""></p>
+<p>LLM 中主流的 RLHF 方向分为两大路线：</p>
+<ul>
+<li><p><strong>以 PPO 为代表的 On-Policy 路线</strong>：训练过程中，需要模型亲自参与”生成”来收集新的数据样本。</p>
+</li>
+<li><p><strong>以 DPO 为代表的 Off-Policy 路线</strong>：训练过程中，不需要”在线”生成，更多依赖事先收集到的（或由别的策略产生的）数据进行离线学习。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/S72LO26IsZ8AED8sQKIWnQ">https://mp.weixin.qq.com/s/S72LO26IsZ8AED8sQKIWnQ</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/675329917">https://zhuanlan.zhihu.com/p/675329917</a></p>
+<h2 id="从策略梯度算法到-PPO"><a href="#从策略梯度算法到-PPO" class="headerlink" title="从策略梯度算法到 PPO"></a>从策略梯度算法到 PPO</h2><h3 id="1-策略梯度"><a href="#1-策略梯度" class="headerlink" title="1. 策略梯度"></a>1. 策略梯度</h3><p>原始策略梯度算法 (REINFORCE / Vanilla Policy Gradient)奠定了后续所有算法的基础。</p>
+<ul>
+<li><p><strong>核心思想:</strong> 直接对策略本身进行建模和优化。如果一个动作序列（Trajectory）最终获得了很高的回报，那么我们就调整策略，让策略网络在遇到这些状态时，更有可能输出这些带来高回报的动作。反之亦然。</p>
+</li>
+<li><p><strong>目标函数:</strong> 算法的目标是最大化期望总回报（Expected Total Reward）。我们用 $\theta$ 表示策略网络 $\pi_\theta$ 的参数，$\tau$ 表示一条完整的轨迹（$s_0, a_0, r_0, s_1, a_1, r_1, \dots$），$R(\tau)$ 是这条轨迹的总回报。目标函数为：</p>
+<script type="math/tex; mode=display">
+J(\theta) = \mathbb{E}*{\tau \sim \pi*\theta} [R(\tau)] = \sum_{\tau} P(\tau; \theta) R(\tau)</script><p>这个公式的含义是，在当前策略 $\pi_\theta$ 下，采样很多轨迹，计算这些轨迹总回报的平均值，我们希望这个平均值越大越好。</p>
+</li>
+<li><p><strong>梯度与损失函数:</strong> 目标函数 $J(\theta)$ 是通过与环境进行复杂的、随机的交互产生的，它不是一个关于 $\theta$ 的简单、可直接求导的函数。奖励信号来自环境，而不是来自模型内部。我们无法像在监督学习中那样，直接通过奖励对模型参数进行反向传播。直接对 $J(\theta)$ 求导很困难，因为期望的概率分布 $P(\tau; \theta)$ 也依赖于 $\theta$。通过“<strong>策略梯度定理</strong>”（Policy Gradient Theorem），我们可以得到一个可计算的梯度形式：</p>
+<script type="math/tex; mode=display">
+\nabla_\theta J(\theta) = \mathbb{E}*{\tau \sim \pi*\theta} \left[ \left( \sum_{t=0}^{T-1} \nabla_\theta \log \pi_\theta(a_t|s_t) \right) R(\tau) \right]</script><p>在实践中，为了减少方差，我们不会用整条轨迹的总回报 $R(\tau)$ 来评估时间步 $t$ 的动作 $a<em>t$，因为在 $t$ 时刻的动作并不会影响 $t$ 之前的奖励。因此，我们使用“未来回报总和”（Reward-to-go），即从当前时刻 $t$ 到轨迹结束的总回报 $G_t = \sum</em>{k=t}^{T} \gamma^{k-t} r_k$。</p>
+<p>梯度更新就变成了：</p>
+<script type="math/tex; mode=display">
+\nabla_\theta J(\theta) \approx \mathbb{E} \left[ \nabla_\theta \log \pi_\theta(a_t|s_t) \cdot G_t \right]</script><p>为了使用梯度下降（最小化）来优化，我们构造一个<strong>损失函数</strong>，通常是目标函数的负数：</p>
+<script type="math/tex; mode=display">
+L_{PG}(\theta) = - \mathbb{E} \left[ \log \pi_\theta(a_t|s_t) \cdot G_t \right]</script><p>这个损失函数直观地告诉我们：如果 $G<em>t$ 是正的（未来回报高），就最小化 $-\log \pi</em>\theta$，即增大 $\log \pi_\theta$，也就是增大动作 $a_t$ 的概率；如果 $G_t$ 是负的（未来回报低），就减小动作 $a_t$ 的概率。</p>
+</li>
+<li><p><strong>主要问题:</strong> <strong>高方差 (High Variance)</strong>。$G_t$ 的值完全依赖于一次采样的结果，波动性非常大。可能某次采样中，一个不错的动作因为后续随机性导致了不好的结果，从而得到了负向更新。这种噪声使得训练过程非常不稳定，收敛缓慢。</p>
+</li>
+</ul>
+<h3 id="2-Actor-Critic-AC"><a href="#2-Actor-Critic-AC" class="headerlink" title="2. Actor-Critic (AC)"></a>2. Actor-Critic (AC)</h3><p>Actor-Critic 旨在解决 REINFORCE 的高方差问题。</p>
+<ul>
+<li><p><strong>核心思想:</strong> 将策略梯度分成两个部分：</p>
+<ol>
+<li><strong>Actor (演员):</strong> 策略网络 $\pi_\theta(a|s)$，负责选择动作，和 REINFORCE 中的策略网络一样。</li>
+<li><strong>Critic (评论家):</strong> 价值网络 $V<em>\phi(s)$ 或 $Q</em>\phi(s,a)$，负责评估当前状态或状态-动作对的好坏，它的作用是为 Actor 的行为打分。</li>
+</ol>
+</li>
+<li><p><strong>改进之处:</strong> AC 不再使用随机性很强的蒙特卡洛采样回报 $G_t$ 来作为权重，而是使用 Critic 网络给出的一个更稳定的价值评估。具体来说，我们引入<strong>优势函数 (Advantage Function)</strong> $A(s_t, a_t)$ 来取代 $G_t$。</p>
+<script type="math/tex; mode=display">
+A(s_t, a_t) = Q(s_t, a_t) - V(s_t)</script><p>优势函数的直观含义是：在状态 $s_t$ 下，采取动作 $a_t$ 比通常情况（平均水平 $V(s_t)$）要好多少。这比单纯的 $G_t$ 是一个更好的基准（Baseline），因为它减去了状态本身价值的干扰，只关注动作的相对好坏，进一步降低了方差。</p>
+</li>
+<li><p><strong>目标与损失函数:</strong></p>
+<ul>
+<li><strong>Actor 的损失函数:</strong> 形式上和 REINFORCE 很像，只是用优势函数 $A(s_t, a_t)$ 替代了 $G_t$。<script type="math/tex; mode=display">
+L_{Actor}(\theta) = - \mathbb{E} \left[ \log \pi_\theta(a_t|s_t) \cdot A(s_t, a_t) \right]</script>在实践中，优势函数通常用 TD-error $\delta<em>t = r_t + \gamma V</em>\phi(s<em>{t+1}) - V</em>\phi(s_t)$ 来近似，因为它是一个对优势函数的无偏估计。</li>
+<li><strong>Critic 的损失函数:</strong> Critic 的目标是准确地学习价值函数 $V_\phi(s)$。它通过最小化 TD-error 的均方误差来更新。<script type="math/tex; mode=display">
+L_{Critic}(\phi) = \mathbb{E} \left[ (r_t + \gamma V_\phi(s_{t+1}) - V_\phi(s_t))^2 \right]</script></li>
+</ul>
+</li>
+<li><p><strong>主要问题:</strong> 尽管降低了方差，但 Actor 的更新步长（学习率）非常敏感。如果某次更新的步子迈得太大，可能会导致策略突然变得很差，并且很难再恢复过来。学习过程仍然不够稳定。</p>
+</li>
+</ul>
+<h3 id="3-TRPO"><a href="#3-TRPO" class="headerlink" title="3. TRPO"></a>3. TRPO</h3><p>TRPO (Trust Region Policy Optimization)直接解决了 AC 算法中更新步长难以确定、策略容易“崩溃”的问题。</p>
+<ul>
+<li><p><strong>核心思想:</strong> 我们希望策略向好的方向更新，但又不希望新策略和旧策略偏离太远，以保证更新的稳定性。TRPO 将这个思想数学化，定义了一个“信赖域”（Trust Region），强制要求每次更新后的新策略都位于这个域内。</p>
+</li>
+<li><p><strong>目标函数:</strong> TRPO 的目标函数是最大化一个“<strong>代理目标函数</strong>”（Surrogate Objective），它衡量了新策略 $\pi<em>\theta$ 相对于旧策略 $\pi</em>{\theta<em>{old}}$ 的改进程度。令概率比率 $r_t(\theta) = \frac{\pi</em>\theta(a<em>t|s_t)}{\pi</em>{\theta_{old}}(a_t|s_t)}$。</p>
+<script type="math/tex; mode=display">
+L(\theta) = \mathbb{E}_t \left[ r_t(\theta) \hat{A}_t \right]</script><p>这里的比率 $r_t(\theta)$ 是重要性采样（Importance Sampling）的权重，$\hat{A}_t$ 是优势函数的估计。</p>
+</li>
+<li><p><strong>改进之处 (核心):</strong> TRPO 的精髓在于它不是直接最大化这个目标函数，而是把它变成一个带约束的优化问题：</p>
+<script type="math/tex; mode=display">
+\underset{\theta}{\text{maximize}} \quad \mathbb{E}_t \left[ r_t(\theta) \hat{A}_t \right]</script><script type="math/tex; mode=display">
+\text{subject to} \quad \mathbb{E}_t \left[ D*{KL}(\pi_{\theta_{old}}(\cdot|s_t) || \pi_\theta(\cdot|s_t)) \right] \leq \delta</script><p>这个约束使用 KL 散度（KL Divergence）来衡量新旧策略的差异，并要求这个差异不能超过一个很小的阈值 $\delta$。这保证了策略更新的平稳性，避免了灾难性的更新。</p>
+</li>
+<li><p><strong>损失函数:</strong> TRPO 没有一个简单的损失函数。它是一个约束优化问题，需要用到共轭梯度法（Conjugate Gradient）等二阶优化方法来求解，计算非常复杂。</p>
+</li>
+<li><p><strong>主要问题:</strong> <strong>计算复杂且难以实现</strong>。TRPO 涉及复杂的二阶优化，与现代深度学习框架（如 TensorFlow, PyTorch）中常用的一阶优化器（如 Adam）不兼容，实现起来非常困难。</p>
+</li>
+</ul>
+<h3 id="4-PPO"><a href="#4-PPO" class="headerlink" title="4. PPO"></a>4. PPO</h3><p>PPO (Proximal Policy Optimization) 的目标是实现 TRPO 的稳定更新思想，但使用更简单、易于实现的一阶优化方法。</p>
+<ul>
+<li><p><strong>核心思想:</strong> TRPO 的 KL 散度约束太复杂，我们能否直接修改目标函数，使得在优化这个函数时，就能自然地达到限制策略更新幅度的效果？PPO 通过“裁剪”（Clipping）来实现这一点。</p>
+</li>
+<li><p><strong>目标函数/损失函数 (PPO-Clip):</strong> PPO 使用的目标函数从 TRPO 改进而来，创新地增加了裁剪机制。令概率比率 $r<em>t(\theta) = \frac{\pi</em>\theta(a<em>t|s_t)}{\pi</em>{\theta_{old}}(a_t|s_t)}$。</p>
+<script type="math/tex; mode=display">
+L^{CLIP}(\theta) = \mathbb{E}_t \left[ \min \left( r_t(\theta) \hat{A}_t, \quad \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon) \hat{A}_t \right) \right]</script><p>这个公式是 PPO 的灵魂：</p>
+<ol>
+<li><strong>$\text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)$:</strong> 强制将概率比率 $r_t$ 裁剪到 $[1-\epsilon, 1+\epsilon]$ 的区间内（$\epsilon$ 是一个超参数，如 0.2）。</li>
+<li><strong>$\min(\dots, \dots)$:</strong><ul>
+<li>当优势 $\hat{A}_t &gt; 0$ 时（即这是一个好动作），目标函数变为 $\min(r_t \hat{A}_t, (1+\epsilon)\hat{A}_t)$。这意味着 $r_t$ 的增长被限制在 $1+\epsilon$，防止策略更新过于激进，过分地增加这个好动作的概率。</li>
+<li>当优势 $\hat{A}_t &lt; 0$ 时（即这是一个坏动作），目标函数变为 $\max(r_t \hat{A}_t, (1-\epsilon)\hat{A}_t)$（因为 $\hat{A}_t$ 是负数，min 相当于 max）。这限制了 $r_t$ 的减小不能低于 $1-\epsilon$，防止策略为了避免一个坏动作而过度改变。</li>
+</ul>
+</li>
+</ol>
+<p>通过这种方式，PPO 将 TRPO 的硬约束（KL散度）变成了一种软约束，直接体现在了目标函数中。这个 $L^{CLIP}(\theta)$ 可以直接用 Adam 等一阶优化器进行最大化（或者最小化其负数）。</p>
+</li>
+<li><p><strong>改进之处:</strong> PPO 在实现 TRPO 稳定性的同时，大大简化了算法的实现难度和计算开销，使其成为当前最流行、最常用的强化学习算法之一。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://hrl.boyuai.com/chapter/2/ppo%E7%AE%97%E6%B3%95">动手学强化学习</a><br><a target="_blank" rel="noopener" href="https://spinningup.openai.com/en/latest/algorithms/ppo.html">Spinning Up in Deep RL</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/614115887">https://zhuanlan.zhihu.com/p/614115887</a></p>
+<h2 id="PPO"><a href="#PPO" class="headerlink" title="PPO"></a>PPO</h2><h3 id="概念与组成"><a href="#概念与组成" class="headerlink" title="概念与组成"></a>概念与组成</h3><p>当下的状态和动作会影响到未来的状态和动作，进而影响到未来的整体收益。因此要将未来的收益纳入当前的考虑。因此 $ V<em>t=R_t+γ V</em>{t+1} $<br>其中：</p>
+<ul>
+<li>$ V_t $  ： t 时刻的（预期）总收益（return），注意这个收益蕴涵了”即时”和”未来”的概念</li>
+<li>$ R_t $  ： t 时刻的即时收益</li>
+<li>$ V<em>{t+1} $  ： t+1 时刻的（预期）总收益。而  $ V</em>{t+1} $  对  $ V_t $  来说就是”未来”。</li>
+<li>$ γ $  ：折扣因子。它决定了我们在多大程度上考虑将”未来收益”纳入”当下收益”。</li>
+</ul>
+<p>在 t 时刻，模型产出token $A<em>t$ 对应着的即时收益为 $R_t$，总收益为 $V_t$ ，模型的状态从 $S_t$ 变为$S</em>{t+1}$</p>
+<p><img src="https://pica.zhimg.com/v2-22c2f6fce157dc4385a14f0de50d8136_r.jpg" alt=""></p>
+<p>如上图，<strong>在RLHF-PPO阶段，一共有四个主要部分</strong>，分别是：</p>
+<ul>
+<li><strong>Actor Model (Policy Model)：演员模型</strong>，这就是我们想要训练的目标语言模型</li>
+<li><strong>Reward Model：奖励模型</strong>，”裁判”，它的作用是计算最终收益  $ r(s, y) $ 。参数冻结</li>
+<li><strong>Critic Model (Value Model)：评论家模型</strong>，”教练”，它的作用是预估某一时刻的总收益  $ V_t $ 。实际上只有模型响应生成结束后才能由 Reward Model 判断对错，因此训练过程奖励是稀疏的， Critic Model 就是要把稀疏的奖励信号换算成每一步的收益，方便训练。需更新参数</li>
+<li><strong>Reference Model：参考模型</strong>，就是保存一个没有经过 RL 的模型作为参考。它的作用是在RLHF阶段给语言模型增加一些”约束”，防止语言模型训歪（很容易偏离原本的分布，朝不受控制的方向更新，效果可能越来越差）。参数冻结</li>
+<li><del>（四大天王有五个不是常识吗）</del> <strong>Generalized Advantage Estimation (GAE)</strong> 将大模型完整回答的奖励$ r(s, y) $ 以及预估收益  $ V_t $换算成每个 token 的收益 $R_t$</li>
+</ul>
+<h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程"></a>训练流程</h3><ol>
+<li><strong>策略模型 (Policy LM)</strong> 根据上下文 $s$ 生成完整的回应 $y$。</li>
+<li><strong>奖励模型 (Reward Model)</strong> 评估这些回应，并为其打出奖励分数 $r(s,y)$。</li>
+<li><strong>广义优势估计 (GAE)</strong> 结合奖励分数和价值模型的估计值，来计算：<ul>
+<li>每个词元 (token) 的<strong>回报 (Returns)</strong> $R_t$（用于训练价值模型）。</li>
+<li>每个词元选择的<strong>优势 (Advantages)</strong> $Adv(t)$（用于训练策略语言模型）。</li>
+</ul>
+</li>
+<li>更新<strong>价值模型 (Value Model)</strong>，以提升回报 $R_t$ 和优势 $Adv(t)$ 估计的准确性。</li>
+<li>使用优势值更新<strong>策略语言模型 (Policy LM)</strong>，以优化其生成回应的能力。</li>
+</ol>
+<p><img src="https://thelmbook.com/articles/img/PPO.drawio.png" alt=""><br>*: 图中 SFT model 指 reference model</p>
+<p><img src="https://pic4.zhimg.com/v2-5b0028cc73d9f2aa599b256df24bda83_r.jpg" alt=""></p>
+<h3 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h3><h4 id="1-确立总目标函数"><a href="#1-确立总目标函数" class="headerlink" title="1. 确立总目标函数"></a>1. 确立总目标函数</h4><p>我们从 RLHF 的最终优化目标出发。这是一个理论上的期望，我们希望最大化它：</p>
+<script type="math/tex; mode=display">\text{目标} = \max_{\pi_\theta} \left( \mathbb{E}[\text{奖励模型分数}] - \beta \cdot \mathbb{E}[\text{KL散度惩罚}] \right)</script><p>即</p>
+<script type="math/tex; mode=display">
+\max_{\pi_\theta}\mathbb{E}_{x\sim\mathcal{D},y\sim\pi_\theta(y\mid x)}
+\left[
+r_\phi(x,y)
+\right]-\beta\mathbb{D}_{\mathrm{KL}}
+\left[
+\pi_\theta(y\mid x)\parallel\pi_{\mathrm{ref}}(y\mid x)
+\right]</script><p>这个目标是针对完整生成序列的，无法直接用于 PPO 这种按步更新的算法。实际上因为不可能用整个序列计算 KL散度（指数时间复杂度），我们将KL分到每个token计算一次，再加和。</p>
+<h4 id="2-将总目标分解为每一步的奖励信号"><a href="#2-将总目标分解为每一步的奖励信号" class="headerlink" title="2. 将总目标分解为每一步的奖励信号"></a>2. 将总目标分解为每一步的奖励信号</h4><p>为了让 PPO 算法能够“理解”这个目标，我们必须将其分解为在<strong>每个时间步（time-step）t</strong> 都能获得的奖励信号 $R_t$。</p>
+<script type="math/tex; mode=display">
+R_t = \begin{cases}
+ -\beta \cdot \text{KL}_t, & t \neq T \\
+ -\beta \cdot \text{KL}_t + r(x,y), & t = T
+\end{cases}</script><p>其中 </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+KL[Actor(X)||Ref(X)] & = \mathbb{E}_{x \sim Actor(x)} \left[ \log \frac{Actor(x)}{Ref(x)} \right] \\
+& = \text{log-probs} - \text{ref-log-probs} 
+\end{aligned}</script><p>现在，PPO 算法的任务就变成了：<strong>最大化这些分步奖励 $R_t$ 的累积期望值</strong>。至此，我们已经把复杂的总目标转化为了一个标准的强化学习问题。</p>
+<h4 id="3-应用策略梯度定理"><a href="#3-应用策略梯度定理" class="headerlink" title="3. 应用策略梯度定理"></a>3. 应用策略梯度定理</h4><p>现在的问题是：如何更新策略 $\pi_\theta$ 来最大化累积的 $R_t$？这里，我们祭出核心工具——<strong>策略梯度定理</strong>。该定理告诉我们，最大化奖励的梯度方向是：</p>
+<script type="math/tex; mode=display">\nabla_\theta J(\theta) \propto \mathbb{E}_t \left[ \text{“某权重”}_t \cdot \nabla_\theta \log \pi_\theta(a_t|s_t) \right]</script><p>这个公式的直观含义是：用一个“权重”来决定是否要增加动作 $(a_t|s_t)$ 的概率。</p>
+<h4 id="4-用优势函数作为“权重”"><a href="#4-用优势函数作为“权重”" class="headerlink" title="4. 用优势函数作为“权重”"></a>4. 用优势函数作为“权重”</h4><p>理论证明，最好的“权重”是<strong>优势函数 (Advantage Function)</strong> $\text{Adv}_t$，因为它能减小方差，让训练更稳定。优势函数的计算完全基于第二步中定义的奖励信号 $R_t$。</p>
+<script type="math/tex; mode=display">\text{Adv}_t \approx (\text{从t时刻开始的累积奖励}) - (\text{对t时刻的价值估计})</script><p>于是，我们的策略梯度更新公式就具体化为：</p>
+<script type="math/tex; mode=display">\nabla_\theta J(\theta) = \mathbb{E}_t \left[ \text{Adv}_t \cdot \nabla_\theta \log \pi_\theta(a_t|s_t) \right]</script><p>$\text{Adv}_t$ 中已经包含了来自总目标函数的所有信息（奖励模型分数和KL惩罚）。</p>
+<p>GAE 计算 Advantage 的过程：  <script type="math/tex">\text{Adv}_t=(V_{t采取动作}-V_{t不采取})+γ∗λ*\text{Adv}_{t+1}\\
+=(R_t+γ∗V_{t+1}-V_t)+γ∗λ*\text{Adv}_{t+1}</script><br>意为采取 $ A<em>t $ 后与不采取相比增加的总收益，再加上对未来的收益。最后一个时刻$t=T$时未来收益$V</em>{T+1}$和未来优势$\text{Adv}_{T+1}$都是0，因此 $ \text{Adv}_T = R_t - V_t$，由此可以从后往前计算 $\text{Adv}$</p>
+<h4 id="5-构建-actor-model-的损失函数"><a href="#5-构建-actor-model-的损失函数" class="headerlink" title="5. 构建 actor model 的损失函数"></a>5. 构建 actor model 的损失函数</h4><p>在深度学习框架中，我们习惯于通过梯度下降最小化一个损失函数。而策略梯度 $\nabla_\theta J(\theta)$ 是我们需要上升 (ascend)的方向。</p>
+<p>我们只需简单地在梯度表达式前加上一个负号，就可以将其转换为一个损失函数：</p>
+<script type="math/tex; mode=display">\mathcal{L} = - \mathbb{E}_t \left[ \text{Adv}_t \cdot \log \pi_\theta(a_t|s_t) \right]</script><p>而如果我们想让一个batch的经验值被重复使用ppo<em>epochs次，等价于我们想要Actor在这个过程中，模拟和环境交互ppo_epochs次，每次都能吐出一些新数据出来。我们只要尽量保证每次更新后的 $Actor</em>{new}$  能模仿最开始的那个 $Actor_{old}$（这里涉及“重要性采样”）：</p>
+<script type="math/tex; mode=display">\mathcal{L} = - \mathbb{E}_t \left[ \text{Adv}_t \cdot\frac{\pi_\theta(a|s)}{\pi_{\theta_{\text{old}}}(a|s)}\right]</script><p>这个公式从直觉上也可以理解成：在Actor想通过模拟交互的方式，使用一个batch的经验值更新自己时，它需要受到真正吃到batch的那个时刻的Actor的约束，这样才能在有效利用batch、提升训练速度的基础上，保持训练的稳定。</p>
+<p>另外，PPO-clip还加入了<strong>Clip机制</strong>用来限制策略更新幅度，防止新策略与旧策略差异过大。</p>
+<script type="math/tex; mode=display">\mathcal{L}^{CLIP}(\theta) = \mathbb{E}_t \left[ \min(r_t(\theta) \text{Adv}_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon) \text{Adv}_t) \right]</script><p>其中 $r<em>t(\theta)=\frac{\pi</em>\theta(a|s)}{\pi<em>{\theta</em>{\text{old}}}(a|s)}$，$ \epsilon $  是剪切阈值（如0.2）， $ \text{Adv}_t $  是优势函数估计。</p>
+<p>在实际计算时，我们用一批采样数据的均值来代替期望 $\mathbb{E}$，得到最终用于代码实现的 actor_loss。</p>
+<h4 id="6-构建-critic-model-的损失函数"><a href="#6-构建-critic-model-的损失函数" class="headerlink" title="6. 构建 critic model 的损失函数"></a>6. 构建 critic model 的损失函数</h4><p>以上我们用算出来的 $R_t, V_t$ 更新了 actor model 的参数，其实这些还需要用来训练 critic model：</p>
+<p>每次迭代用 MSE 计算 critic model 的预测和 GAE 给出的预测的差值更新 critic model，让它对收益的估计越来越准确。每个 batch 更新，batch 内 ppo_epochs 之间不变。</p>
+<p>Critic Loss 也采用了裁剪机制来限制值函数的更新幅度，以防止训练过程中的不稳定。</p>
+<script type="math/tex; mode=display">\mathcal{L}_{\text{critic}}(\phi) = \frac{1}{2} \cdot \mathbb{E}_t \left[ \max \left( \left( V_\phi(s_t) - R_t \right)^2, \left( V_\phi(s_t)^{\text{clipped}} - R_t \right)^2 \right) \right]</script><p>其中：</p>
+<ul>
+<li>$V_\phi(s_t)$：当前值网络对状态 $s_t$ 的估计。</li>
+<li>$R_t$：目标回报（实际回报）。</li>
+<li>$V_\phi(s_t)^{\text{clipped}}$：裁剪后的值函数。它的计算方式如下：<script type="math/tex; mode=display">
+V_\phi(s_t)^{\text{clipped}} = \text{clip}\left( V_\phi(s_t), V_\phi(s_t)^{\text{old}} - \epsilon, V_\phi(s_t)^{\text{old}} + \epsilon \right)</script>其中，$V_\phi(s_t)^{\text{old}}$ 是前一次的估计值，$\epsilon$ 控制裁剪的范围。</li>
+</ul>
+<p><strong>PPO相比传统策略梯度方法（如TRPO）有哪些改进？</strong><br><strong>改进</strong>：  </p>
+<ul>
+<li><strong>简化实现</strong>：PPO通过剪切（Clip）替代TRPO的复杂约束优化，避免计算二阶导数。  </li>
+<li><strong>数据效率</strong>：支持多次使用同一批数据更新策略（通过重要性采样）。  </li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677607581">图解大模型RLHF系列之：人人都能看懂的PPO原理与源码解读 - 知乎</a><br><a target="_blank" rel="noopener" href="https://thelmbook.com/articles/#!./RLHF-PPO.md">Reinforcement Learning With Human Feedback (RLHF) with Proximal Policy Optimization (PPO)</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/7461863937">https://zhuanlan.zhihu.com/p/7461863937</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/19223907990">https://zhuanlan.zhihu.com/p/19223907990</a></p>
+<h2 id="DPO"><a href="#DPO" class="headerlink" title="DPO"></a>DPO</h2><p>核心思路：对于同一个问题(prompt)，有一个好答案/坏答案的数据对(pair-wise data)，让策略函数(也就是大模型)离好答案的分布概率更近，离坏答案的分布概率更远。</p>
+<p>DPO 原始论文中的概括的流程如下：</p>
+<ol>
+<li><p><strong>构建偏好数据集</strong>：对于每一个提示（prompt）$x$，从参考策略 $\pi<em>{\mathrm{ref}}(\cdot \mid x)$ 中采样生成两个补全（completion）$y_1$ 和 $y_2$。然后，根据人类的偏好对它们进行标注，从而构建一个<strong>离线</strong>的偏好数据集 $\mathcal{D} = { (x^{(i)}, y_w^{(i)}, y_l^{(i)}) }</em>{i=1}^N$。其中 $y_w$ 代表更受偏好的回答（winner），$y_l$ 代表较差的回答（loser）。</p>
+</li>
+<li><p><strong>优化模型</strong>：在给定的参考策略 $\pi<em>{\mathrm{ref}}$、数据集 $\mathcal{D}$ 和期望的超参数 $\beta$ 的条件下，通过最小化损失函数 $\mathcal{L}</em>{\text{DPO}}$ 来优化语言模型 $\pi_\theta$。</p>
+</li>
+</ol>
+<p><strong>DPO实现</strong>：  </p>
+<ul>
+<li>假设偏好数据服从Bradley-Terry模型，通过极大似然估计直接优化策略：  <script type="math/tex; mode=display">\mathcal{L}_{\text{DPO}} = -\log \sigma\left( \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)} \right)</script>其中  $ \pi_{\text{ref}} $  是参考策略（如初始LM）， $ \beta $  控制KL正则化强度。</li>
+</ul>
+<h3 id="DPO-vs-SFT"><a href="#DPO-vs-SFT" class="headerlink" title="DPO vs SFT"></a><strong>DPO vs SFT</strong></h3><p>虽然 DPO 只是在使用现成的数据集中的 $(x, y_w, y_l)$ 这种数据对而不是像 PPO 让策略与环境交互获得反馈，但它和 SFT 的底层逻辑完全不同。</p>
+<ul>
+<li><strong>SFT (监督微调)</strong>：它是“<strong>模仿者</strong>”。<ul>
+<li>目标是让 $\pi(y_w|x)$ 的概率最大化。</li>
+<li>它只看“正确答案”，不看“错误答案”。如果你把 $y_l$ 喂给 SFT（做负例微调），由于交叉熵损失的特性，它只会盲目降低 $y_l$ 的概率，而不知道该把它降到多少。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>DPO (直接偏好优化)</strong>：它是“<strong>裁判员</strong>”。<ul>
+<li>它不仅要提高 $y_w$ 的概率，还要<strong>拉大 $y_w$ 和 $y_l$ 之间的相对差距</strong>。</li>
+<li><strong>关键公式差异</strong>：注意 $\mathcal{L}<em>{DPO}$ 中的 $\frac{\pi}{\pi</em>{ref}}$，它引入了一个<strong>参考模型</strong>。DPO 不是在学绝对的概率，而是在学：<strong>“相对于参考模型，我应该在多大程度上把好答案的权重提上来，把坏答案的权重压下去。”</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="DPO-vs-PPO"><a href="#DPO-vs-PPO" class="headerlink" title="DPO vs PPO"></a><strong>DPO vs PPO</strong></h3><p><strong>为什么没有新采样也能学得好？</strong></p>
+<p>“没有新采样、没有新 Reward”是 DPO 的<strong>离线（Off-policy）</strong>特性。</p>
+<p>在 PPO 中，我们需要一个显式的 Reward Model（RM）来给每一步打分。而 DPO 的天才之处在于：它证明了 <strong>最优策略 $\pi^*$ 与 奖励函数 $r(x, y)$ 之间存在数学上的闭式解映射</strong>。</p>
+<p>简单来说：<strong>模型本身就是奖励模型</strong>。</p>
+<ul>
+<li><strong>PPO</strong>：依赖奖励模型提供标量奖励，通过强化学习更新策略。  </li>
+<li><strong>DPO</strong>：直接将偏好数据映射到策略优化目标，通过隐式奖励建模绕过显式RM训练。  </li>
+</ul>
+<ul>
+<li>当你增加 $y_w$ 的概率并降低 $y_l$ 的概率时，你实际上是在隐式地构造一个奖励面。</li>
+<li><strong>这种“不采样”的代价</strong>：<strong>分布偏移（Distribution Shift）</strong>。DPO 极度依赖偏好数据集的质量。如果数据集里没见过的表达方式，DPO 永远学不会。它只能在已有的“池子”里重新分配概率。模型在训练集上能分清 $A &gt; B$，但在推理时，模型可能会生成一个训练集里从未出现的 $C$。此时模型对 $C$ 的评价（隐式 Reward）可能是完全错乱的。</li>
+</ul>
+<p>这也是为什么现在工业界开始流行 <strong>Iterative DPO (迭代式 DPO)</strong>：</p>
+<ol>
+<li>用当前的 DPO 模型采样出一些新回复。</li>
+<li>用一个更强的模型（比如 GPT-4o 或专门的 RM）给这些新回复标注偏好。</li>
+<li>把新数据喂给模型再跑一次 DPO。</li>
+</ol>
+<p><strong>这本质上就是把 DPO 变成了“带采样的在线强化学习”，从而弥补它不采样的短板。</strong></p>
+<h3 id="不同-Epoch-学的内容一样吗？"><a href="#不同-Epoch-学的内容一样吗？" class="headerlink" title="不同 Epoch 学的内容一样吗？"></a><strong>不同 Epoch 学的内容一样吗？</strong></h3><p>这涉及到 <strong>梯度（Gradient）的动态变化</strong>。</p>
+<p>虽然数据没变，但随着 Epoch 增加，模型的参数 $\theta$ 在变，这意味着：</p>
+<ul>
+<li><strong>梯度权重在变</strong>：看 DPO 的损失函数公式，它外面套了一个 $\sigma$（Sigmoid）。<ul>
+<li>如果模型已经能很好地区分 $y_w$ 和 $y_l$（即差值很大），Sigmoid 会进入饱和区，梯度会变得非常小——模型会说：“这题我会了，不用再深究。”</li>
+<li>如果模型分不清（差值很小），梯度会非常大——模型会说：“这题我得重点学。”</li>
+</ul>
+</li>
+<li><strong>KL 散度的约束</strong>：公式里的 $\beta$ 像一根橡皮筋，拉着新模型不要跑离 $\pi<em>{ref}$ 太远。随着 Epoch 增加，模型在尝试突破约束去拉大 $y_w/y_l$ 差距，而 $\pi</em>{ref}$ 始终在那里起稳定作用。</li>
+</ul>
+<blockquote>
+<p><strong>比喻</strong>：SFT 像是背课文，你背 10 遍也是在背那几句话；而 DPO 像是做“找不同”，第一遍你可能只发现大区别，第二遍你会开始注意微小的特征差异来拉开两者的评分。</p>
+</blockquote>
+<h3 id="如何初始化策略模型"><a href="#如何初始化策略模型" class="headerlink" title="如何初始化策略模型"></a><strong>如何初始化策略模型</strong></h3><p>在实践中，研究者们更倾向于重用公开可用的偏好数据集，而不是自己生成样本并收集人类偏好。由于这些公开的数据集通常是使用一个经过监督微调（SFT）的模型 $\pi<em>{\text{SFT}}$ 进行采样的，因此，当 $\pi</em>{\text{SFT}}$ 模型可用时，我们通常将参考策略初始化为 $\pi<em>{\mathrm{ref}} = \pi</em>{\text{SFT}}$。</p>
+<p>然而，当生成数据集的 $\pi<em>{\text{SFT}}$ 模型不可用时，我们会通过最大化更优补全 $(x, y_w)$ 的对数似然来初始化参考策略 $\pi</em>{\mathrm{ref}}$，即：</p>
+<script type="math/tex; mode=display">\pi_{\mathrm{ref}} = \arg\max_{\pi} \mathbb{E}_{(x, y_w) \sim \mathcal{D}} [\log \pi(y_w \mid x)]</script><p>这个过程有助于缓解那个无法获得的、真实的参考分布与 DPO 实际所使用的参考策略 $\pi_{\mathrm{ref}}$ 之间的分布偏移问题。</p>
+<h3 id="为什么有时候DPO只需要一个模型，表现-收敛性、易训性-却比PPO好？"><a href="#为什么有时候DPO只需要一个模型，表现-收敛性、易训性-却比PPO好？" class="headerlink" title="为什么有时候DPO只需要一个模型，表现(收敛性、易训性)却比PPO好？"></a><strong>为什么有时候DPO只需要一个模型，表现(收敛性、易训性)却比PPO好？</strong></h3><ol>
+<li>奖励函数只传递单一维度，但好坏是多维度决定的；reward function过度压缩信息，dpo把两个信息挤压在一起，传输效率更好</li>
+<li>The Bitter Lesson：寻找捕捉复杂性的元方法，靠数据量 Scale Up 取胜而不是人工引入新的机制（Reward Model）</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/721073733">https://zhuanlan.zhihu.com/p/721073733</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dWB2Y4EcG/?p=9">https://www.bilibili.com/video/BV1dWB2Y4EcG/?p=9</a></p>
+<h2 id="Deepseek-R1-与-GRPO"><a href="#Deepseek-R1-与-GRPO" class="headerlink" title="Deepseek R1 与 GRPO"></a>Deepseek R1 与 GRPO</h2><p><img src="https://thelmbook.com/articles/img/DeepSeek-R1.drawio.png" alt=""><br><strong>Deepseek R1厉害在哪？</strong><br>Deepseek R1 Zero 成功解决了不依赖大量标注 reasoning 数据来教授LLM一步步思考的挑战，仅通过RL让模型自己发现长思考的技能。</p>
+<p>Deepseek不使用可能引起 reward hacking 的复杂 reward model，而是使用基于规则的、可以自动验证的 reward model ，自动验证避免了人工或LLM验证引起的错误、偏差或幻觉。</p>
+<p><strong>GRPO</strong><br>GRPO 由 PPO 改进而来：它不是使用价值模型来估计优势计算的基线，而是为每个输入对多个输出进行采样，并使用每组内的平均奖励作为基线。这意味着，如果为数学问题生成 64 个输出，其中一个获得 0.9 的奖励，而组平均值为 0.7，则该解决方案将获得 0.2 的正优势。这种基于组的方法提供了一种自然的方法来确定输出是好于还是差于平均值，而无需单独的值模型进行预测。最终，模型学会了纠正自身错误的能力，例如“等等，我注意到上一步有错误…”这里的优势会更高。</p>
+<p>个人认为它的核心思想在于 the bitter lesson，利用多次采样这种简单粗暴的方法去掉了精心设计的价值模型所引入的偏差</p>
+<p><img src="https://thelmbook.com/articles/img/PPO-GRPO.png" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://thelmbook.com/articles/#!./DeepSeek-R1.md">DeepSeek R1 and R1-Zero Explained</a></p>
+<h2 id="GSPO等"><a href="#GSPO等" class="headerlink" title="GSPO等"></a>GSPO等</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1933217003654586554">https://zhuanlan.zhihu.com/p/1933217003654586554</a></p>
+<h2 id="Reward-Hacking"><a href="#Reward-Hacking" class="headerlink" title="Reward Hacking"></a>Reward Hacking</h2><ul>
+<li>如何避免？<ul>
+<li>对于针对系统设计的 reward hacking，将 Agent 沙盒化，不让它接触到reward function</li>
+<li>多种奖励的组合。结合不同类型的奖励可能使其更难被 hacking</li>
+<li>像 Deepseek R1 不使用可能引起 reward hacking 的复杂 reward model，而是使用基于规则的、可以自动验证的 reward model </li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a target="_blank" rel="noopener" href="https://github.com/TiffanyBlews">Github</a></li><li><a href="../mailto:wangtheneighbor@gmail.com">Mail</a></li><li><a target="_blank" rel="noopener" href="https://space.bilibili.com/6592870">Bilibili</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1919/">1919</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%AD%A6%E6%9C%AF%E3%80%81%E6%8A%80%E6%9C%AF%E5%90%91/">学术、技术向</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%9E%E5%AD%A6%E6%9C%AF%E5%90%91/">非学术向</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/neo4j/" rel="tag">neo4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E4%BA%8C%E8%AF%AD%E4%B9%A0%E5%BE%97/" rel="tag">二语习得</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E4%BA%9A%E6%96%87%E5%8C%96/" rel="tag">亚文化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%85%AB%E8%82%A1/" rel="tag">八股</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%8C%BB%E5%AD%A6/" rel="tag">医学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%93%B2%E5%AD%A6/" rel="tag">哲学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" rel="tag">因果推断</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag">多模态</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%AE%89%E5%88%A9/" rel="tag">安利</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%AA%90%E6%9E%AB%E5%8A%A8%E6%BC%AB%E7%A4%BE/" rel="tag">檐枫动漫社</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E6%BC%94%E8%AE%B2/" rel="tag">演讲</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/" rel="tag">网络技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BE%8E%E5%A6%86/" rel="tag">美妆</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%A1%8C%E5%8A%A8/" rel="tag">行动</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%A7%82%E5%90%8E%E6%84%9F/" rel="tag">观后感</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AF%84%E4%BB%B7/" rel="tag">评价</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" rel="tag">语言学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="eaf9.html">LLM Infra 学习笔记</a><a class="next-button" href="b8cf.html">【八股笔记】LLM从入门到入土</a></div><div id="comments"></div><script src="https://www.unpkg.com/valine/dist/Valine.min.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
+  new Valine({
+    el: '#comments',
+    appId: 'BD60D1TRxaryY1fKVSpZ9aov-gzGzoHsz',
+    appKey: 'MEom5rIRpMudZrUV2688BAtW',
+    notify: false,
+    verify: false,
+    avatar: 'mp',
+    placeholder: 'yay',
+  })
+})</script></div></div></div><div class="footer"><span>©️2019-2026 Designed By&nbsp;<strong><a target="_blank" rel="noopener" href="https://github.com/random-yang">RandomYang</a></strong> Powered By&nbsp;</span><strong><a target="_blank" rel="noopener" href="https://hexo.io">hexo</a></strong>&nbsp; &nbsp; &nbsp;<a href="https://icp.gov.moe/?keyword=20241421" target="_blank">萌ICP备20241421号</a></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>
