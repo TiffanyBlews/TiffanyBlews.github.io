@@ -176,7 +176,7 @@ D_{KL}(P \parallel Q) = H(P, Q) - H(P)</script><p>这表明，KL 散度衡量了
 <li>Encoder-decoder 有两个不同网络 → 不对称 → 切分困难，资源利用率低。</li>
 </ul>
 <h3 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a>初始化方法</h3><ul>
-<li><strong>Xavier/Glorot 初始化</strong>: 适用于 Sigmoid/Tanh 激活函数，使得前向传播时信号方差保持稳定，方差为  $ 2 / (n<em>{\text{in}} + n</em>{\text{out}}) $ 。  </li>
+<li><strong>Xavier/Glorot 初始化</strong>: 适用于 Sigmoid/Tanh 激活函数，使得前向传播时信号方差保持稳定，方差为  $ 2 / (n_{\text{in}} + n_{\text{out}}) $ 。  </li>
 <li><strong>He 初始化</strong>: 适用于 ReLU，保证前向和反向传播时信号不易消失或爆炸，方差为  $ 2/n_{\text{in}} $ 。  </li>
 <li><strong>正交初始化</strong>: 保持矩阵正交性，防止梯度爆炸/消失。  </li>
 </ul>
@@ -256,7 +256,7 @@ D_{KL}(P \parallel Q) = H(P, Q) - H(P)</script><p>这表明，KL 散度衡量了
 <h2 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h2><h3 id="Perplexity-PPL-困惑度（预训练阶段）"><a href="#Perplexity-PPL-困惑度（预训练阶段）" class="headerlink" title="Perplexity PPL 困惑度（预训练阶段）"></a>Perplexity PPL 困惑度（预训练阶段）</h3><p>对于一个随机变量，</p>
 <script type="math/tex; mode=display">\text{PPL}= 2^{H(p)} = 2^{-\sum_{x\in X} p(x){log}_2p(x)}</script><p>对于两个分布之间，</p>
 <script type="math/tex; mode=display">
-\text{PPL} = 2^{H(p_r, p_\theta)}</script><p>其中， $  H(p<em>r, p</em>\theta)  $  是真实分布  $  p<em>r  $  和模型分布  $  p</em>\theta  $  之间的交叉熵：</p>
+\text{PPL} = 2^{H(p_r, p_\theta)}</script><p>其中， $  H(p_r, p_\theta)  $  是真实分布  $  p_r  $  和模型分布  $  p_\theta  $  之间的交叉熵：</p>
 <script type="math/tex; mode=display">H(p_r, p_\theta) = - \sum_{s} p_r(s) \log_2 p_\theta(s)</script><p>因为我们只有给定语料 $ S $ 没有真实分布  $  p_r  $ ，所以我们假设 $  p_r = 1/n  $ ，因此得到</p>
 <script type="math/tex; mode=display">
 \text{PPL}(S) = 2^{-\frac{1}{n} \sum_{i=1}^{n} \log_2 p_\theta(w_i \mid w_1, \dots, w_{i-1})} \\

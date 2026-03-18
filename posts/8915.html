@@ -45,7 +45,7 @@ MathJax.Hub.Queue(function() {
 <p>论文中提出的方法论，即Pangu框架，是一个用于将语言模型与现实世界环境相结合的通用框架。该框架的核心思想是利用语言模型的判别能力来评估由符号代理生成的候选计划。</p>
 <h3 id="Pangu框架工作流程"><a href="#Pangu框架工作流程" class="headerlink" title="Pangu框架工作流程"></a>Pangu框架工作流程</h3><ol>
 <li><strong>初始化</strong>：定义一个初始计划集 _P_0​，可能为空。</li>
-<li><strong>候选计划生成</strong>：符号代理在每一步与环境交互，基于当前计划生成新的候选计划集 <em>Ct</em>​。</li>
+<li><strong>候选计划生成</strong>：符号代理在每一步与环境交互，基于当前计划生成新的候选计划集 _Ct_​。</li>
 <li><strong>计划评估</strong>：语言模型对每个候选计划进行评分，选择得分最高的前 K 个计划作为下一步的候选。</li>
 <li><strong>终止检查</strong>：如果在当前步骤中没有找到比前一步骤更好的计划，则终止搜索。</li>
 <li><strong>返回结果</strong>：返回评分最高的计划作为最终结果。</li>
@@ -100,10 +100,10 @@ MathJax.Hub.Queue(function() {
 <li><strong>SearchGraphPatterns(sparql, semantic)</strong>：旨在识别 KB 中重要的图谓词，根据语义参数引导。</li>
 <li><strong>ExecuteSPARQL(sparql)</strong>：允许直接执行任意 SPARQL 查询，确保了极大的灵活性。</li>
 </ul>
-<p>给定问题 <em>Q</em>，首先构建提示文本： Prompt={Inst, E, Q} 其中，Inst 包括工具描述、工具使用和交互格式。<em>E</em> 是一组示例，每个问题类型手动注释两个完整的示例。</p>
-<p>在每一轮 <em>T</em>中，让 LLM 基于提示和交互历史 <em>H</em> 生成一个动作：</p>
-<p><em>aT</em>​=LLM({Prompt, H})</p>
-<p><em>H</em>\={<em>c_0​,_a_0​,_o_0​,…,_cT</em>−1​,<em>aT</em>−1​,<em>oT</em>−1​} 其中 <em>c</em> 表示中间思考过程，<em>a</em> 是的三种工具的一种，<em>o</em> 是执行动作的结果。</p>
+<p>给定问题 _Q_，首先构建提示文本： Prompt={Inst, E, Q} 其中，Inst 包括工具描述、工具使用和交互格式。_E_ 是一组示例，每个问题类型手动注释两个完整的示例。</p>
+<p>在每一轮 _T_中，让 LLM 基于提示和交互历史 _H_ 生成一个动作：</p>
+<p>_aT_​=LLM({Prompt, H})</p>
+<p>_H_\={_c_0​,_a_0​,_o_0​,…,_cT_−1​,_aT_−1​,_oT_−1​} 其中 _c_ 表示中间思考过程，_a_ 是的三种工具的一种，_o_ 是执行动作的结果。</p>
 <p>通过 Interactive-KBQA 方法，使注释推理过程变得更加简单。在 LLM 生成不合理动作时，可以人工进行纠正，并将其纳入生成下一轮动作的消息中。</p>
 <h3 id="数据集：-2"><a href="#数据集：-2" class="headerlink" title="数据集："></a>数据集：</h3><ol>
 <li><strong>WebQuestionsSP (WebQSP)</strong></li>
